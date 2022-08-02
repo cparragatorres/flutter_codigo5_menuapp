@@ -79,6 +79,20 @@ class _HomeCustomerPageState extends State<HomeCustomerPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 0.0),
+                                      decoration: BoxDecoration(
+                                        color: KBrandSecondaryColor,
+                                        borderRadius: BorderRadius.circular(6.0),
+                                      ),
+                                      child: Text(
+                                        "Plato de fondo",
+                                        style: TextStyle(
+                                          color: KBrandPrimaryColor
+                                        ),
+                                      ),
+                                    ),
+                                    divider3,
                                     Text(
                                       "Cevichito",
                                       style: TextStyle(
@@ -87,6 +101,7 @@ class _HomeCustomerPageState extends State<HomeCustomerPage> {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
+                                    divider3,
                                     // Text(
                                     //   "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
                                     //   style: TextStyle(
@@ -99,7 +114,7 @@ class _HomeCustomerPageState extends State<HomeCustomerPage> {
                                       children: [
                                         Row(
                                           children: List.generate(
-                                            5,
+                                            1,
                                             (index) => Icon(
                                               Icons.star,
                                               size: 14.0,
@@ -108,7 +123,31 @@ class _HomeCustomerPageState extends State<HomeCustomerPage> {
                                           ),
                                         ),
                                         dividerWidth6,
-                                        Text("4.0"),
+                                        Text(
+                                          "4.0",
+                                          style: TextStyle(
+                                            fontSize: 12.0,
+                                          ),
+                                        ),
+                                        dividerWidth3,
+                                        Text("|"),
+                                        dividerWidth3,
+                                        Text(
+                                          "20 min",
+                                          style: TextStyle(
+                                            fontSize: 12.0,
+                                          ),
+                                        ),
+                                        dividerWidth3,
+                                        Text("|"),
+                                        dividerWidth3,
+                                        Text(
+                                          "Porciones: 1",
+                                          style: TextStyle(
+                                            fontSize: 12.0,
+                                          ),
+                                        ),
+                                        dividerWidth3,
                                       ],
                                     ),
                                   ],
