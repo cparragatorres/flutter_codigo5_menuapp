@@ -41,7 +41,7 @@ class H1 extends StatelessWidget {
     return TextWidget(
       text: text,
       fontSize: kH1Size,
-      color: KBrandPrimarycolor,
+      color: KBrandPrimaryColor,
       fontWeight: FontWeight.w600,
       height: 1.1,
     );
