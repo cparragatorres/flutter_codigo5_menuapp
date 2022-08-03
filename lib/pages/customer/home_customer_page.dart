@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:menuapp/pages/ui/general/colors.dart';
 import 'package:menuapp/pages/ui/widgets/general_widget.dart';
 import 'package:menuapp/pages/ui/widgets/item_category_widget.dart';
@@ -16,6 +15,9 @@ class HomeCustomerPage extends StatefulWidget {
 }
 
 class _HomeCustomerPageState extends State<HomeCustomerPage> {
+
+  int indexCategory = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -190,23 +192,42 @@ class _HomeCustomerPageState extends State<HomeCustomerPage> {
                     children: [
                       ItemCategoryWitget(
                         text: "Todos",
-                        select: false,
+                        select: indexCategory ==0,
+                        onTap: (){
+                          indexCategory = 0;
+                          setState((){});
+                        },
                       ),
                       ItemCategoryWitget(
                         text: "Platos de fondo",
-                        select: true,
+                        select: indexCategory ==1,
+                        onTap: (){
+                          indexCategory = 1;
+                          setState((){});
+                        },
                       ),
                       ItemCategoryWitget(
                         text: "Bebidas",
-                        select: false,
+                        select: indexCategory == 2,
+                        onTap: (){
+                          indexCategory = 2;
+                          setState((){});
+                        },
                       ),
                       ItemCategoryWitget(
                         text: "Entradas",
-                        select: false,
+                        select: indexCategory == 3,
+                        onTap: (){
+                          indexCategory = 3;
+                          setState((){});
+                        },
                       ),
                       ItemCategoryWitget(
                         text: "Postres",
-                        select: false,
+                        select: indexCategory == 4,
+                        onTap: (){
+                          indexCategory = 4;
+                        },
                       ),
                     ],
                   ),
