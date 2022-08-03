@@ -15,7 +15,6 @@ class HomeCustomerPage extends StatefulWidget {
 }
 
 class _HomeCustomerPageState extends State<HomeCustomerPage> {
-
   int indexCategory = 0;
 
   @override
@@ -28,14 +27,18 @@ class _HomeCustomerPageState extends State<HomeCustomerPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextNormal(text: "Bienvenidos"),
+                TextNormal(
+                  text: "Bienvenidos",
+                ),
                 H1(
                   text: "El Pez Gordo",
                 ),
                 divider12,
                 SearchWidget(),
                 divider12,
-                TextNormal(text: "Promociones"),
+                TextNormal(
+                  text: "Promociones",
+                ),
                 divider12,
                 SizedBox(
                   height: 260.0,
@@ -182,8 +185,11 @@ class _HomeCustomerPageState extends State<HomeCustomerPage> {
                     },
                   ),
                 ),
-                divider12,
-                TextNormal(text: "Categorias"),
+                divider20,
+                TextNormal(
+                  text: "Categorias",
+                  color: null,
+                ),
                 divider12,
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -192,42 +198,77 @@ class _HomeCustomerPageState extends State<HomeCustomerPage> {
                     children: [
                       ItemCategoryWitget(
                         text: "Todos",
-                        select: indexCategory ==0,
-                        onTap: (){
+                        select: indexCategory == 0,
+                        onTap: () {
                           indexCategory = 0;
-                          setState((){});
+                          setState(() {});
                         },
                       ),
                       ItemCategoryWitget(
                         text: "Platos de fondo",
-                        select: indexCategory ==1,
-                        onTap: (){
+                        select: indexCategory == 1,
+                        onTap: () {
                           indexCategory = 1;
-                          setState((){});
+                          setState(() {});
                         },
                       ),
                       ItemCategoryWitget(
                         text: "Bebidas",
                         select: indexCategory == 2,
-                        onTap: (){
+                        onTap: () {
                           indexCategory = 2;
-                          setState((){});
+                          setState(() {});
                         },
                       ),
                       ItemCategoryWitget(
                         text: "Entradas",
                         select: indexCategory == 3,
-                        onTap: (){
+                        onTap: () {
                           indexCategory = 3;
-                          setState((){});
+                          setState(() {});
                         },
                       ),
                       ItemCategoryWitget(
                         text: "Postres",
                         select: indexCategory == 4,
-                        onTap: (){
+                        onTap: () {
                           indexCategory = 4;
                         },
+                      ),
+                    ],
+                  ),
+                ),
+                divider20,
+                Container(
+                  child: Row(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(14.0),
+                        child: Image.network(
+                          "https://knpr.org/sites/default/files/public/styles/detail_small/public/images/article/octopus_015b.jpg?itok=lWSF96aQ",
+                          height: 120,
+                          width: 120,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Text(
+                              "Pulpo frito",
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.w600,
+                                color: KBrandPrimaryColor,
+                              ),
+                            ),
+                            TextNormal(
+                              text: "Los platos de taco, hechos con tortillas de maíz caseras, amplían el cuadro de burrito con opciones adicionales de pescado, barbacoa de res y pulpo estofado.",
+                              color: KBrandPrimaryColor.withOpacity(0.5),
+                              maxLines: 3,
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),

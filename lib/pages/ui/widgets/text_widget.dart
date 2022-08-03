@@ -8,6 +8,7 @@ class TextWidget extends StatelessWidget {
   final Color color;
   final FontWeight? fontWeight;
   final double? height;
+  final int? maxLines;
 
   TextWidget({
     required this.text,
@@ -15,12 +16,15 @@ class TextWidget extends StatelessWidget {
     required this.color,
     this.fontWeight,
     this.height,
+    this.maxLines,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
+      maxLines: maxLines,
+      overflow: TextOverflow.ellipsis,
       style: TextStyle(
         fontSize: fontSize,
         color: color,
@@ -50,17 +54,22 @@ class H1 extends StatelessWidget {
 
 class TextNormal extends StatelessWidget {
   final String text;
+  final Color? color;
+  final int? maxLines;
 
   TextNormal({
     required this.text,
+    this.color,
+    this.maxLines,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextWidget(
       text: text,
+      maxLines: maxLines,
       fontSize: textNormalSize,
-      color: KBrandPrimaryColor,
+      color: color ?? KBrandPrimaryColor,
     );
   }
 }
