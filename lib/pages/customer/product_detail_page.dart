@@ -11,6 +11,7 @@ class ProductDetailPage extends StatelessWidget {
         child: Column(
           children: [
             Stack(
+              clipBehavior: Clip.none,
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.only(
@@ -22,6 +23,25 @@ class ProductDetailPage extends StatelessWidget {
                     height: height * 0.45,
                     width: double.infinity,
                     fit: BoxFit.cover,
+                  ),
+                ),
+                Positioned.fill(
+                  bottom: -10.0,
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            "Chupe de camarones",
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ],
