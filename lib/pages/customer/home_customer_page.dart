@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:menuapp/pages/ui/general/colors.dart';
 import 'package:menuapp/pages/ui/widgets/general_widget.dart';
+import 'package:menuapp/pages/ui/widgets/item_category_widget.dart';
 import 'package:menuapp/pages/ui/widgets/search_widget.dart';
 import 'package:menuapp/pages/ui/widgets/text_widget.dart';
 
@@ -25,16 +26,14 @@ class _HomeCustomerPageState extends State<HomeCustomerPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "Bienvenidos",
-                ),
+                TextNormal(text: "Bienvenidos"),
                 H1(
                   text: "El Pez Gordo",
                 ),
                 divider12,
                 SearchWidget(),
                 divider12,
-                Text("Promociones"),
+                TextNormal(text: "Promociones"),
                 divider12,
                 SizedBox(
                   height: 260.0,
@@ -60,6 +59,26 @@ class _HomeCustomerPageState extends State<HomeCustomerPage> {
                         child: Stack(
                           children: [
                             Align(
+                              alignment: Alignment.topRight,
+                              child: Container(
+                                margin: const EdgeInsets.all(14.0),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 6.0,
+                                  vertical: 4.0,
+                                ),
+                                decoration: BoxDecoration(
+                                    color: KBrandSecondaryColor,
+                                    borderRadius: BorderRadius.circular(8.0)),
+                                child: Text(
+                                  "50% Desc",
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Align(
                               alignment: Alignment.bottomCenter,
                               child: Container(
                                 margin: const EdgeInsets.symmetric(
@@ -72,7 +91,7 @@ class _HomeCustomerPageState extends State<HomeCustomerPage> {
                                 ),
                                 width: double.infinity,
                                 decoration: BoxDecoration(
-                                  color: Colors.white,
+                                  color: Colors.white.withOpacity(0.88),
                                   borderRadius: BorderRadius.circular(14.0),
                                 ),
                                 child: Column(
@@ -80,16 +99,17 @@ class _HomeCustomerPageState extends State<HomeCustomerPage> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     Container(
-                                      padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 0.0),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 6.0, vertical: 0.0),
                                       decoration: BoxDecoration(
                                         color: KBrandSecondaryColor,
-                                        borderRadius: BorderRadius.circular(6.0),
+                                        borderRadius:
+                                            BorderRadius.circular(6.0),
                                       ),
                                       child: Text(
                                         "Plato de fondo",
                                         style: TextStyle(
-                                          color: KBrandPrimaryColor
-                                        ),
+                                            color: KBrandPrimaryColor),
                                       ),
                                     ),
                                     divider3,
@@ -158,6 +178,37 @@ class _HomeCustomerPageState extends State<HomeCustomerPage> {
                         ),
                       );
                     },
+                  ),
+                ),
+                divider12,
+                TextNormal(text: "Categorias"),
+                divider12,
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  physics: const BouncingScrollPhysics(),
+                  child: Row(
+                    children: [
+                      ItemCategoryWitget(
+                        text: "Todos",
+                        select: false,
+                      ),
+                      ItemCategoryWitget(
+                        text: "Platos de fondo",
+                        select: true,
+                      ),
+                      ItemCategoryWitget(
+                        text: "Bebidas",
+                        select: false,
+                      ),
+                      ItemCategoryWitget(
+                        text: "Entradas",
+                        select: false,
+                      ),
+                      ItemCategoryWitget(
+                        text: "Postres",
+                        select: false,
+                      ),
+                    ],
                   ),
                 ),
               ],
