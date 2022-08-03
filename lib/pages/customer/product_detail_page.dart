@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:menuapp/pages/ui/general/colors.dart';
+
+import '../ui/widgets/general_widget.dart';
 
 class ProductDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -26,18 +30,71 @@ class ProductDetailPage extends StatelessWidget {
                   ),
                 ),
                 Positioned.fill(
-                  bottom: -10.0,
+                  bottom: -25.0,
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: Container(
+                      constraints: BoxConstraints(
+                        maxWidth: width * 0.8,
+                      ),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Colors.red,
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
                             "Chupe de camarones",
+                            maxLines: 1,
+                            style: TextStyle(
+                              color: KBrandPrimaryColor,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            "Plato de fondo",
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Row(
+                                children: List.generate(
+                                  1,
+                                  (index) => Icon(
+                                    Icons.star,
+                                    size: 14.0,
+                                    color: Color(0xffFDBF4F),
+                                  ),
+                                ),
+                              ),
+                              dividerWidth6,
+                              Text(
+                                "4.0",
+                                style: TextStyle(
+                                  fontSize: 12.0,
+                                ),
+                              ),
+                              dividerWidth3,
+                              Text("|"),
+                              dividerWidth3,
+                              Text(
+                                "20 min",
+                                style: TextStyle(
+                                  fontSize: 12.0,
+                                ),
+                              ),
+                              dividerWidth3,
+                              Text("|"),
+                              dividerWidth3,
+                              Text(
+                                "Porciones: 1",
+                                style: TextStyle(
+                                  fontSize: 12.0,
+                                ),
+                              ),
+                              dividerWidth3,
+                            ],
                           ),
                         ],
                       ),
