@@ -191,7 +191,7 @@ class _HomeCustomerPageState extends State<HomeCustomerPage> {
                   text: "Categorias",
                   color: null,
                 ),
-                divider12,
+                divider20,
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),
