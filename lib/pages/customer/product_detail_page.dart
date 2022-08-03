@@ -36,9 +36,19 @@ class ProductDetailPage extends StatelessWidget {
                     child: Container(
                       constraints: BoxConstraints(
                         maxWidth: width * 0.8,
+                        minWidth: width * 0.8,
                       ),
+                      padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 14.0),
                       decoration: BoxDecoration(
-                        color: Colors.red,
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(18.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.06),
+                            offset: const Offset(0, 5),
+                            blurRadius: 12.0,
+                          ),
+                        ],
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -46,6 +56,7 @@ class ProductDetailPage extends StatelessWidget {
                           Text(
                             "Chupe de camarones",
                             maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               color: KBrandPrimaryColor,
                               fontSize: 16.0,
