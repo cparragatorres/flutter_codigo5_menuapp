@@ -1,12 +1,18 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:menuapp/pages/ui/general/colors.dart';
 import 'package:menuapp/pages/ui/widgets/item_ingredient_widget.dart';
 import 'package:menuapp/pages/ui/widgets/text_widget.dart';
-
 import '../ui/widgets/general_widget.dart';
 
-class ProductDetailPage extends StatelessWidget {
+class ProductDetailPage extends StatefulWidget {
+
+  @override
+  State<ProductDetailPage> createState() => _ProductDetailPageState();
+}
+
+class _ProductDetailPageState extends State<ProductDetailPage> {
+  int quantity = 1;
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -14,9 +20,10 @@ class ProductDetailPage extends StatelessWidget {
 
     return Scaffold(
       body: Stack(
-        fit: StackFit.expand,
+        fit: StackFit.loose,
         children: [
           SingleChildScrollView(
+            scrollDirection: Axis.vertical,
             child: Column(
               children: [
                 Stack(
@@ -152,41 +159,65 @@ class ProductDetailPage extends StatelessWidget {
                           ItemIngredientWidget(text: "Orégano"),
                         ],
                       ),
+                      divider40,
+                      divider40,
                     ],
                   ),
                 ),
               ],
             ),
           ),
-          Positioned(
-            bottom: 0,
+          Align(
+            alignment: Alignment.bottomCenter,
             child: Container(
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 14.0, vertical: 16.0),
+              height: 70.0,
+              margin: const EdgeInsets.symmetric(
+                horizontal: 0.0,
+                vertical: 0.0,
+              ),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12.0,
+                vertical: 10.0,
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.06),
+                    offset: const Offset(0, -5),
+                    blurRadius: 12.0,
+                  ),
+                ],
+              ),
               child: Row(
                 children: [
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      color: KBrandPrimaryColor.withOpacity(0.5),
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    child: Icon(
-                      Icons.remove,
-                      color: Colors.white,
+                  InkWell(
+                    onTap: quantity > 1 ? (){
+                      quantity--;
+                      setState((){});
+                    }: null,
+                    child: Container(
+                      height: 50,
+                      width: 50,
+                      decoration: BoxDecoration(
+                        color: quantity>1 ? KBrandPrimaryColor : KBrandPrimaryColor.withOpacity(0.3),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      child: Icon(
+                        Icons.remove,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 0.0),
-                    color: Colors.red,
-                    constraints: BoxConstraints(
+                    constraints: const BoxConstraints(
                       minWidth: 40.0,
                       maxWidth: 40.0,
                     ),
                     alignment: Alignment.center,
                     child: Text(
-                      "1",
+                      quantity.toString(),
                       style: TextStyle(
                         color: KBrandPrimaryColor,
                         fontWeight: FontWeight.bold,
@@ -194,16 +225,44 @@ class ProductDetailPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      color: KBrandPrimaryColor,
-                      borderRadius: BorderRadius.circular(12.0),
+                  InkWell(
+                    onTap: (){
+                      quantity++;
+                      setState((){});
+                    },
+                    child: Container(
+                      height: 50,
+                      width: 50,
+                      decoration: BoxDecoration(
+                        color: KBrandPrimaryColor,
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      child: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      ),
                     ),
-                    child: Icon(
-                      Icons.add,
-                      color: Colors.white,
+                  ),
+                  dividerWidth10,
+                  Expanded(
+                    child: SizedBox(
+                      height: 54.0,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(14.0),
+                              side: BorderSide.none,
+                            ),
+                            primary: KBrandPrimaryColor),
+                        onPressed: () {},
+                        child: Text(
+                          "Agregar orden",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18.0,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ],
