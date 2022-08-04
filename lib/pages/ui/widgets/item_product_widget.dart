@@ -60,6 +60,7 @@ class ItemProductWidget extends StatelessWidget {
                   text: "Los platos de taco, hechos con tortillas de maíz caseras, amplían el cuadro de burrito con opciones adicionales de pescado, barbacoa de res y pulpo estofado.",
                   color: KBrandPrimaryColor.withOpacity(0.5),
                   maxLines: 3,
+                  textOverFlow: TextOverflow.ellipsis,
                 ),
                 divider3,
                 Row(

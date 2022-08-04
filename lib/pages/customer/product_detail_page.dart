@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:menuapp/pages/ui/general/colors.dart';
+import 'package:menuapp/pages/ui/widgets/text_widget.dart';
 
 import '../ui/widgets/general_widget.dart';
 
@@ -63,9 +64,9 @@ class ProductDetailPage extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Text(
-                            "Plato de fondo",
-                          ),
+                          divider3,
+                          TextNormal(text: "Plato de fondo"),
+                          divider3,
                           Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -113,7 +114,11 @@ class ProductDetailPage extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            ),
+            divider40,
+            divider12,
+            TextNormal(text: "Descripción"),
+            TextNormal(text: "Del mejor chupe de camarones que alguna vez comerás. Vamos todos a mudarnos a Perú, ya. Y a los que ya están allá: felicitaciones por la belleza en la que viven."),
           ],
         ),
       ),
