@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:menuapp/pages/ui/general/colors.dart';
+import 'package:menuapp/pages/ui/widgets/item_ingredient_widget.dart';
 import 'package:menuapp/pages/ui/widgets/text_widget.dart';
 
 import '../ui/widgets/general_widget.dart';
@@ -19,7 +20,7 @@ class ProductDetailPage extends StatelessWidget {
               clipBehavior: Clip.none,
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     bottomRight: Radius.circular(50.0),
                     bottomLeft: Radius.circular(50.0),
                   ),
@@ -31,7 +32,7 @@ class ProductDetailPage extends StatelessWidget {
                   ),
                 ),
                 Positioned.fill(
-                  bottom: -25.0,
+                  bottom: -40.0,
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: Container(
@@ -39,7 +40,8 @@ class ProductDetailPage extends StatelessWidget {
                         maxWidth: width * 0.8,
                         minWidth: width * 0.8,
                       ),
-                      padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 14.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12.0, vertical: 14.0),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(18.0),
@@ -116,9 +118,39 @@ class ProductDetailPage extends StatelessWidget {
               ],
             ),
             divider40,
-            divider12,
-            TextNormal(text: "Descripción"),
-            TextNormal(text: "Del mejor chupe de camarones que alguna vez comerás. Vamos todos a mudarnos a Perú, ya. Y a los que ya están allá: felicitaciones por la belleza en la que viven."),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TextNormal(text: "Descripción"),
+                  divider12,
+                  TextNormal(
+                    text:
+                        "En mi viaje a la ciudad de Arequipa fui a visitar a una gran amiga que no veía en años, ella me recibió de gran manera invitándome de almuerzo nada más y nada menos que Chupe de Camarones. El Chupe de Camarones es una joya de la gastronomía peruana. Es un plato con historia, linaje, color y sabor maravilloso.",
+                    color: KBrandPrimaryColor.withOpacity(0.6),
+                  ),
+                  divider12,
+                  TextNormal(text: "Ingredientes:"),
+                  divider12,
+                  Wrap(
+                    spacing: 12.0,
+                    runSpacing: 12.0,
+                    children: [
+                      ItemIngredientWidget(text: "Camarones"),
+                      ItemIngredientWidget(text: "Papa amarilla"),
+                      ItemIngredientWidget(text: "Arvejas"),
+                      ItemIngredientWidget(text: "Arroz"),
+                      ItemIngredientWidget(text: "Cebolla roja picada"),
+                      ItemIngredientWidget(text: "Ají panca"),
+                      ItemIngredientWidget(text: "Sal"),
+                      ItemIngredientWidget(text: "Pimienta"),
+                      ItemIngredientWidget(text: "Orégano"),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
